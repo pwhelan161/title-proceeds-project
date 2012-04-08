@@ -40,7 +40,88 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="1" >
+            
+            <TableRow
+                android:id="@+id/tableRowCounty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
+                <TextView
+                    android:id="@+id/county_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/county_label" />
+
+                <Spinner
+                    android:id="@+id/county_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            
+            <TableRow
+                android:id="@+id/tableRowPaidThrough"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/PaidThrough_label" />
+                <Spinner
+                    android:id="@+id/PaidThrough_spinner"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+                    
+            </TableRow>
+            
+            <TableRow
+                android:id="@+id/tabelRowHOACondoFees1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/HOACondoFeesLabel1" />
+
+                <Spinner
+                    android:id="@+id/HOACondoFeesSpinner1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+                    
+            </TableRow>
+            
+            <TableRow 
+                android:id="@+id/tableRowHOACondoFees2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/HOACondoFeesLabel2" />
+                <EditText 
+                    android:id="@+id/HOAFeesDollars"
+                    android:inputType="numberDecimal"
+                    android:text="@string/HOACondoFeesDecimal"/>         
+            </TableRow>
+            
+            <TableRow
+                android:id="@+id/closingDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                
+                <TextView
+                    android:text="@string/closingDateLabel" />
+                <EditText
+                    android:id="@+id/closingDateValue" 
+                    android:inputType="date"
+                    android:focusable="False"
+                    />
+                
+            </TableRow>
+                
+            
             <TableRow
                 android:id="@+id/tableRow0"
                 android:layout_width="wrap_content"
