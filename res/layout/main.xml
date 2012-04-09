@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
@@ -12,19 +12,19 @@
 
         <TableRow
             android:id="@+id/tableRowFinal"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/calculateButton"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:onClick="calculateProceeds"
                 android:text="@string/calculateButton" />
 
             <TextView
                 android:id="@+id/calculatedProceeds"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|right"
                 android:text="@string/calculatedProceeds" />
@@ -32,8 +32,8 @@
     </TableLayout>
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent" >
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
         <TableLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -43,61 +43,66 @@
             
             <TableRow
                 android:id="@+id/tableRowCounty"
-                android:layout_width="wrap_content"
+                android:layout_width="100dip"
                 android:layout_height="wrap_content" >
 
                 <TextView
                     android:id="@+id/county_label"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/county_label" />
 
                 <Spinner
                     android:id="@+id/county_spinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
             </TableRow>
             
             <TableRow
                 android:id="@+id/tableRowPaidThrough"
-                android:layout_width="wrap_content"
+                android:layout_width="100dip"
                 android:layout_height="wrap_content" >
                 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/PaidThrough_label"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/PaidThrough_label" />
                 <Spinner
                     android:id="@+id/PaidThrough_spinner"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content" />
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1" />
                     
             </TableRow>
             
             <TableRow
                 android:id="@+id/tabelRowHOACondoFees1"
-                android:layout_width="wrap_content"
+                android:layout_width="100dip"
                 android:layout_height="wrap_content" >
                 
                 <TextView 
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/HOACondoFeesLabel1" />
 
                 <Spinner
                     android:id="@+id/HOACondoFeesSpinner1"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content" />
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1" />
                     
             </TableRow>
             
             <TableRow 
                 android:id="@+id/tableRowHOACondoFees2"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
                 
                 <TextView 
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/HOACondoFeesLabel2" />
                 <EditText 
@@ -108,7 +113,7 @@
             
             <TableRow
                 android:id="@+id/closingDate"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
                 
                 <TextView
@@ -124,7 +129,7 @@
             
             <TableRow
                 android:id="@+id/tableRow0"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
@@ -142,17 +147,17 @@
 
             <TableRow
                 android:id="@+id/tableRow1"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/first_mortgage_label" />
 
                 <EditText
                     android:id="@+id/first_mortgage_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -164,17 +169,17 @@
 
             <TableRow
                 android:id="@+id/tableRow2"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/second_mortgage_label" />
 
                 <EditText
                     android:id="@+id/second_mortgage_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -186,17 +191,17 @@
 
             <TableRow
                 android:id="@+id/tableRow3"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/other_liens_label" />
 
                 <EditText
                     android:id="@+id/other_liens_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -208,34 +213,34 @@
 
             <TableRow
                 android:id="@+id/tableRow4"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
                     android:id="@+id/realtor_commissions"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/realtor_commissions_label" />
 
                 <Spinner
                     android:id="@+id/realtor_commissions_spinner"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow5"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/other_realtor_fees_label" />
 
                 <EditText
                     android:id="@+id/other_realtor_fees_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -247,18 +252,18 @@
 
             <TableRow
                 android:id="@+id/tableRow6"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/prorated_taxes_label" />
 
                 <EditText
                     android:id="@+id/prorated_taxes_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -270,18 +275,18 @@
 
             <TableRow
                 android:id="@+id/tableRow7"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/prorated_hoa_label" />
 
                 <EditText
                     android:id="@+id/prorated_hoa_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -293,18 +298,18 @@
 
             <TableRow
                 android:id="@+id/tableRow8"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/settlement_label" />
 
                 <EditText
                     android:id="@+id/settlement_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -316,18 +321,18 @@
 
             <TableRow
                 android:id="@+id/tableRow9"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/title_exam_label" />
 
                 <EditText
                     android:id="@+id/title_exam_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -339,18 +344,18 @@
 
             <TableRow
                 android:id="@+id/tableRow10"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/homeowner_title_label" />
 
                 <EditText
                     android:id="@+id/homeowner_title_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -362,18 +367,18 @@
 
             <TableRow
                 android:id="@+id/tableRow11"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/title_insurance_binder_label" />
 
                 <EditText
                     android:id="@+id/title_insurance_binder_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -385,18 +390,18 @@
 
             <TableRow
                 android:id="@+id/tableRow12"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/conveyance_fee_label" />
 
                 <EditText
                     android:id="@+id/conveyance_fee_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -408,18 +413,18 @@
 
             <TableRow
                 android:id="@+id/tableRow13"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/deed_preparation_label" />
 
                 <EditText
                     android:id="@+id/deed_preparation_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -431,18 +436,18 @@
 
             <TableRow
                 android:id="@+id/tableRow14"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/gas_line_label" />
 
                 <EditText
                     android:id="@+id/gas_line_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -454,18 +459,18 @@
 
             <TableRow
                 android:id="@+id/tableRow15"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/home_warranty_label" />
 
                 <EditText
                     android:id="@+id/home_warranty_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -476,18 +481,18 @@
             </TableRow>
             <TableRow
                 android:id="@+id/tableRow16"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/s_h_label" />
 
                 <EditText
                     android:id="@+id/s_h_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -498,18 +503,18 @@
             </TableRow>
             <TableRow
                 android:id="@+id/tableRow17"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:text="@string/seller_concessions_label" />
 
                 <EditText
                     android:id="@+id/seller_concessions_decimal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
