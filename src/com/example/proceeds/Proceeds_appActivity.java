@@ -141,17 +141,14 @@ public class Proceeds_appActivity extends Activity {
 
 		float commissionRate = Float.valueOf(commission_rate);
 
-		float proceeds = sellingPrice + firstMortgage + secondMortgage
-				+ otherLiens + commissionRate;
-
-		String proceedsStr = String.valueOf(proceeds);/*
-													 * updateStr =
-													 * Context.getResources
-													 * ().getString()
-													 */
+		
+		float commission = (float) (commissionRate * .01 * sellingPrice);
+		String commissionS = String.valueOf(commission);
 
 		TextView tv = (TextView) findViewById(R.id.calculatedProceeds);
-		tv.setText(proceedsStr);
+		tv.setText(commissionS);
+		
+		setContentView(R.layout.results);
 
 	};
 
