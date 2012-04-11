@@ -5,6 +5,7 @@ import java.util.Calendar;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,6 +32,16 @@ public class Proceeds_appActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		
+		/* Ready calculate button to go to other activity */
+		Button next = (Button) findViewById(R.id.calculateButton);
+        next.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), Results.class);
+                startActivityForResult(myIntent, 0);
+            }
+
+        });
 
 		/* Set commission spinner */
 		Spinner spinner = (Spinner) findViewById(R.id.realtor_commissions_spinner);
@@ -118,38 +129,5 @@ public class Proceeds_appActivity extends Activity {
 		}
 		return null;
 	}
-
-	public void calculateProceeds(View button) {
-		final EditText selling_price = (EditText) findViewById(R.id.selling_price);
-		final EditText first_mortgage = (EditText) findViewById(R.id.first_mortgage_decimal);
-		final EditText second_mortgage = (EditText) findViewById(R.id.second_mortgage_decimal);
-		final EditText other_liens = (EditText) findViewById(R.id.other_liens_decimal);
-		final Spinner commissions = (Spinner) findViewById(R.id.realtor_commissions_spinner);
-		String commission_rate = commissions.getSelectedItem().toString();
-
-		String sellingPriceS = selling_price.getText().toString();
-		float sellingPrice = Float.valueOf(sellingPriceS);
-
-		String firstMortgageS = first_mortgage.getText().toString();
-		float firstMortgage = Float.valueOf(firstMortgageS);
-
-		String secondMortgageS = second_mortgage.getText().toString();
-		float secondMortgage = Float.valueOf(secondMortgageS);
-
-		String otherLiensS = other_liens.getText().toString();
-		float otherLiens = Float.valueOf(otherLiensS);
-
-		float commissionRate = Float.valueOf(commission_rate);
-
-		
-		float commission = (float) (commissionRate * .01 * sellingPrice);
-		String commissionS = String.valueOf(commission);
-
-		TextView tv = (TextView) findViewById(R.id.calculatedProceeds);
-		tv.setText(commissionS);
-		
-		setContentView(R.layout.results);
-
-	};
 
 }
