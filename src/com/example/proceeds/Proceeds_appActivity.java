@@ -32,19 +32,11 @@ public class Proceeds_appActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		
-		/* Ready calculate button to go to other activity */
-		Button next = (Button) findViewById(R.id.calculateButton);
-        next.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), Results.class);
-                startActivityForResult(myIntent, 0);
-            }
 
-        });
+		// Declaring all variables
 
 		/* Set commission spinner */
-		Spinner spinner = (Spinner) findViewById(R.id.realtor_commissions_spinner);
+		final Spinner spinner = (Spinner) findViewById(R.id.realtor_commissions_spinner);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
 				this, R.array.realtor_commissions_prompt,
 				android.R.layout.simple_spinner_item);
@@ -52,7 +44,7 @@ public class Proceeds_appActivity extends Activity {
 		spinner.setAdapter(adapter);
 
 		/* Set county spinner */
-		Spinner countySpinner = (Spinner) findViewById(R.id.county_spinner);
+		final Spinner countySpinner = (Spinner) findViewById(R.id.county_spinner);
 		ArrayAdapter<CharSequence> countyAdapter = ArrayAdapter
 				.createFromResource(this, R.array.county_spinner,
 						android.R.layout.simple_spinner_item);
@@ -78,10 +70,9 @@ public class Proceeds_appActivity extends Activity {
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		hoaSpinner.setAdapter(hoaAdapter);
 
+		/* Set the date picker & initialize it */
 		// capture our View elements
-		// mDateDisplay = (TextView) findViewById(R.id.closingDateValue);
 		mPickDate = (TextView) findViewById(R.id.closingDateValue);
-		// mPickDate = (Button) findViewById(R.id.pickDate);
 
 		// add a click listener to the button
 		mPickDate.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +89,69 @@ public class Proceeds_appActivity extends Activity {
 
 		// display the current date (this method is below)
 		updateDisplay();
+		/* Finished setting & updating datepicker */
+
+		/* Ready calculate button to go to other activity */
+		Button next = (Button) findViewById(R.id.calculateButton);
+		next.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+
+				final EditText feeAmountI = (EditText) findViewById(R.id.HOAFeesDollars);
+				float feeAmount = Float
+						.valueOf(feeAmountI.getText().toString());
+
+				final EditText sellingPriceI = (EditText) findViewById(R.id.selling_price);
+				final float sellingPrice = Float.valueOf(sellingPriceI
+						.getText().toString());
+
+				final EditText firstMortgageI = (EditText) findViewById(R.id.first_mortgage_decimal);
+				float firstMortgage = Float.valueOf(firstMortgageI.getText()
+						.toString());
+
+				final EditText secondMortgageI = (EditText) findViewById(R.id.second_mortgage_decimal);
+				final float secondMortgage = Float.valueOf(secondMortgageI
+						.getText().toString());
+
+				final EditText otherLiensI = (EditText) findViewById(R.id.other_liens_decimal);
+				final float otherLiens = Float.valueOf(otherLiensI.getText()
+						.toString());
+
+				final EditText otherRealtorI = (EditText) findViewById(R.id.other_realtor_fees_decimal);
+				float otherRealter = Float.valueOf(otherRealtorI.getText()
+						.toString());
+
+				final EditText gasLineI = (EditText) findViewById(R.id.gas_line_decimal);
+				float gasLine = Float.valueOf(gasLineI.getText().toString());
+
+				final EditText homeWarrantyI = (EditText) findViewById(R.id.home_warranty_decimal);
+				float homeWarranty = Float.valueOf(homeWarrantyI.getText()
+						.toString());
+
+				final EditText sellerConcessionsI = (EditText) findViewById(R.id.seller_concessions_decimal);
+				float sellerConcessions = Float.valueOf(sellerConcessionsI
+						.getText().toString());
+
+				float commissionRate = Float.valueOf(spinner.getSelectedItem()
+						.toString());
+				commissionRate = (float) (commissionRate * .01);
+
+				final float resPoop = commissionRate * sellingPrice;
+				final String hope = String.valueOf(resPoop);
+
+				Intent myIntent = new Intent(view.getContext(), Results.class);
+				myIntent.putExtra("county", countySpinner.getSelectedItem()
+						.toString());
+				myIntent.putExtra("commissionRate", commissionRate);
+				myIntent.putExtra("sellingPrice", sellingPrice);
+				/*
+				 * myIntent.putExtra( "firstMortgage", firstMortgage); my
+				 * myIntent .putExtra("otherLiens" , otherLiens);
+				 */
+				startActivityForResult(myIntent, 0);
+			}
+
+		});
+
 	};
 
 	// updates the date in the TextView

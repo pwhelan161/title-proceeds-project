@@ -1,191 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1" >
+
+    <TableRow
+        android:id="@+id/res_commission_row"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="1" >
-           <TableRow
-                android:id="@+id/tableRow6"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" >
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="@string/prorated_taxes_label" />
+        <TextView
+            android:id="@+id/realtor_commissions_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/realtor_commissions_label" />
 
-                <EditText
-                    android:id="@+id/prorated_taxes_decimal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="@string/prorated_taxes_decimal" >
+        <TextView
+            android:id="@+id/res_commission_decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </TableRow>
 
-                    
-                </EditText>
-            </TableRow>
+    <TableRow
+        android:id="@+id/res_prorated_taxes"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-            <TableRow
-                android:id="@+id/tableRow7"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_prorated_taxes_label" />
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="@string/prorated_hoa_label" />
+        <TextView
+            android:id="@+id/res_prorated_taxes_decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_prorated_taxes_decimal" >
+        </TextView>
+    </TableRow>
 
-                <EditText
-                    android:id="@+id/prorated_hoa_decimal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="@string/prorated_hoa_decimal" >
+    <TableRow
+        android:id="@+id/res_prorated_hoa"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-                    
-                </EditText>
-            </TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_prorated_hoa_label" />
 
-            <TableRow
-                android:id="@+id/tableRow8"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+        <TextView
+            android:id="@+id/res_prorated_hoa_decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_prorated_hoa_decimal" >
+        </TextView>
+    </TableRow>
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="@string/settlement_label" />
+    <TableRow
+        android:id="@+id/res_settlement"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-                <EditText
-                    android:id="@+id/settlement_decimal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="@string/settlement_decimal" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_settlement_label" />
 
-                    
-                </EditText>
-            </TableRow>
+        <TextView
+            android:id="@+id/res_settlement_decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_settlement_decimal" >
+        </TextView>
+    </TableRow>
 
-            <TableRow
-                android:id="@+id/tableRow9"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+    <TableRow
+        android:id="@+id/res_title_exam"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="@string/title_exam_label" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_title_exam_label" />
 
-                <EditText
-                    android:id="@+id/title_exam_decimal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="@string/title_exam_decimal" >
+        <TextView
+            android:id="@+id/title_exam_decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_title_exam_decimal" >
+        </TextView>
+    </TableRow>
 
-                    
-                </EditText>
-            </TableRow>
+    <TableRow
+        android:id="@+id/res_homeowner_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-            <TableRow
-                android:id="@+id/tableRow10"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_homeowner_title_label" />
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="@string/homeowner_title_label" />
+        <TextView
+            android:id="@+id/res_homeowner_title_decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_homeowner_title_decimal" />
+    </TableRow>
 
-                <EditText
-                    android:id="@+id/homeowner_title_decimal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="@string/homeowner_title_decimal" >
+    <TableRow
+        android:id="@+id/res_title_insurance_binder"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-                    
-                </EditText>
-            </TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_title_insurance_binder_label" />
 
-            <TableRow
-                android:id="@+id/tableRow11"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+        <TextView
+            android:id="@+id/res_title_insurance_binder_decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_title_insurance_binder_decimal" />
+    </TableRow>
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="@string/title_insurance_binder_label" />
+    <TableRow
+        android:id="@+id/res_conveyance_fee"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-                <EditText
-                    android:id="@+id/title_insurance_binder_decimal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="@string/title_insurance_binder_decimal" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_conveyance_fee_label" />
 
-                    
-                </EditText>
-            </TableRow>
+        <TextView
+            android:id="@+id/res_conveyance_fee_decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_conveyance_fee_decimal" >
+        </TextView>
+    </TableRow>
 
-            <TableRow
-                android:id="@+id/tableRow12"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+    <TableRow
+        android:id="@+id/res_deed_preparation_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="@string/conveyance_fee_label" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_deed_preparation_label" />
 
-                <EditText
-                    android:id="@+id/conveyance_fee_decimal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="@string/conveyance_fee_decimal" >
+        <TextView
+            android:id="@+id/res_deed_preparation_decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_deed_preparation_decimal" >
+        </TextView>
+    </TableRow>
 
-                    
-                </EditText>
-            </TableRow>
+    <TableRow
+        android:id="@+id/res_s_h"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-            <TableRow
-                android:id="@+id/tableRow13"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_s_h_label" />
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="@string/deed_preparation_label" />
-
-                <EditText
-                    android:id="@+id/deed_preparation_decimal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="@string/deed_preparation_decimal" >
-
-                    
-                </EditText>
-            </TableRow>
+        <TextView
+            android:id="@+id/res_s_h_decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/res_s_h_decimal" >
+        </TextView>
+    </TableRow>
 
 </TableLayout>

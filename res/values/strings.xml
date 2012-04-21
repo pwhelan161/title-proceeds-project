@@ -2,7 +2,9 @@
 <resources>
 
     <string name="hello">Hello World, Proceeds_appActivity!</string>
-    <string name="app_name">Proceeds_app</string><string name="county_label">County</string>
+    <string name="app_name">Proceeds_app</string>
+    <string name="county_label">County</string>
+
     <string-array name="county_spinner">
         <item>Delaware</item>
         <item>Fairfield</item>
@@ -10,7 +12,9 @@
         <item>Licking</item>
         <item>Union</item>
         <item>Other</item>
-    </string-array><string name="selling_price_label">Selling Price</string>
+    </string-array>
+
+    <string name="selling_price_label">Selling Price</string>
     <string name="selling_price_decimal">0.0</string>
     <string name="first_mortgage_label">1st Mortgage Payoff</string>
     <string name="first_mortgage_decimal">0.0</string>
@@ -19,70 +23,77 @@
     <string name="other_liens_label">Other Liens</string>
     <string name="other_liens_decimal">0.0</string>
     <string name="realtor_commissions_label">Realtor Commissions</string>
+
     <string-array name="realtor_commissions_prompt">
-        <item >0.0</item>
-        <item >0.5</item>
-        <item >1.5</item>
-        <item >2.0</item>
-        <item >2.5</item>
-        <item >3.0</item>
-        <item >3.5</item>
-        <item >4.0</item>
-        <item >4.5</item>
-        <item >5.0</item>
-        <item >5.5</item>
-        <item >6.0</item>
-        <item >6.5</item>
-        <item >7.0</item>
-        <item >7.5</item>
-        <item >8.0</item>
+        <item>0.0</item>
+        <item>0.5</item>
+        <item>1.5</item>
+        <item>2.0</item>
+        <item>2.5</item>
+        <item>3.0</item>
+        <item>3.5</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+        <item>5.5</item>
+        <item>6.0</item>
+        <item>6.5</item>
+        <item>7.0</item>
+        <item>7.5</item>
+        <item>8.0</item>
     </string-array>
+
     <string name="other_realtor_fees_label">Other Realtor Fees</string>
     <string name="other_realtor_fees_decimal">0.0</string>
     <string name="calculateButton">Calculate Proceeds</string>
     <string name="calculatedProceeds">0.0</string>
-    <string name="prorated_taxes_label">Est. pro. taxes</string>
-    <string name="prorated_taxes_decimal">0.0</string>
-    <string name="prorated_hoa_label">Pro. HOA Fees</string>
-    <string name="prorated_hoa_decimal">0.0</string>
-    <string name="settlement_label">Settlement</string>
-    <string name="settlement_decimal">50.0</string>
-    <string name="title_exam_label">Title Exam</string>
-    <string name="title_exam_decimal">185.0</string>
-    <string name="homeowner_title_label">Homeowner Title</string>
-    <string name="homeowner_title_decimal">0.0</string>
-    <string name="title_insurance_binder_label">Title Insurance</string>
-    <string name="title_insurance_binder_decimal">50.0</string>
-    <string name="conveyance_fee_label">Convyeance Fee</string>
-    <string name="conveyance_fee_decimal">0.0</string>
-    <string name="deed_preparation_label">Deed Preparation</string>
-    <string name="deed_preparation_decimal">50.0</string>
+    <string name="res_prorated_taxes_label">Est. pro. taxes</string>
+    <string name="res_prorated_taxes_decimal">0.0</string>
+    <string name="res_prorated_hoa_label">Pro. HOA Fees</string>
+    <string name="res_prorated_hoa_decimal">0.0</string>
+    <string name="res_settlement_label">Settlement</string>
+    <string name="res_settlement_decimal">50.0</string>
+    <string name="res_title_exam_label">Title Exam</string>
+    <string name="res_title_exam_decimal">185.0</string>
+    <string name="res_homeowner_title_label">Homeowner Title</string>
+    <string name="res_homeowner_title_decimal">0.0</string>
+    <string name="res_title_insurance_binder_label">Title Insurance</string>
+    <string name="res_title_insurance_binder_decimal">50.0</string>
+    <string name="res_conveyance_fee_label">Convyeance Fee</string>
+    <string name="res_conveyance_fee_decimal">0.0</string>
+    <string name="res_deed_preparation_label">Deed Preparation</string>
+    <string name="res_deed_preparation_decimal">50.0</string>
     <string name="gas_line_label">Gas Line War.</string>
     <string name="gas_line_decimal">0.0</string>
     <string name="home_warranty_label">Home Warranty</string>
     <string name="home_warranty_decimal">0.0</string>
-    <string name="s_h_label">S &amp; H</string>
-    <string name="s_h_decimal">0.0</string>
-    <string name="seller_concessions_label">Seller Concessions</string><string name="seller_concessions_decimal">0.0</string>
-    
+    <string name="res_s_h_label">S &amp; H</string>
+    <string name="res_s_h_decimal">0.0</string>
+    <string name="seller_concessions_label">Seller Concessions</string>
+    <string name="seller_concessions_decimal">0.0</string>
     <string name="PaidThrough_label">Paid through</string>
+
     <string-array name="PaidThrough">
-        <item >First Half 2009</item>
-        <item >Second Half 2009</item>
-        <item >First Half 2010</item>
-        <item >Second Half 2010</item>
-        <item >First Half 2011</item>
-        <item >Second Half 2011</item>
-        <item >First Half 2012</item>
-        <item >Second Half 2012</item>
+        <item>First Half 2009</item>
+        <item>Second Half 2009</item>
+        <item>First Half 2010</item>
+        <item>Second Half 2010</item>
+        <item>First Half 2011</item>
+        <item>Second Half 2011</item>
+        <item>First Half 2012</item>
+        <item>Second Half 2012</item>
     </string-array>
+
     <string name="HOACondoFeesLabel1">HOA/Condo Fees</string>
+
     <string-array name="HOACondoFeesSpinner1">
-        <item >Monthly</item>
-        <item >Yearly</item>
+        <item>Monthly</item>
+        <item>Yearly</item>
     </string-array>
+
     <string name="HOACondoFeesLabel2">Fee amount</string>
     <string name="HOACondoFeesDecimal">0.0</string>
     <string name="closingDateLabel">Closing Date</string>
+    <string name="res_realtor_commission_calculated">0.0</string>
 
 </resources>
