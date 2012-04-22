@@ -95,5 +95,7 @@
     <string name="HOACondoFeesDecimal">0.0</string>
     <string name="closingDateLabel">Closing Date</string>
     <string name="res_realtor_commission_calculated">0.0</string>
+    <string name="AnnualTax">Annual Tax</string>
+    <string name="AnnualTaxDecimal">0.0</string>
 
 </resources>

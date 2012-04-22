@@ -53,7 +53,7 @@ public class Proceeds_appActivity extends Activity {
 		countySpinner.setAdapter(countyAdapter);
 
 		/* Set paid through spinner */
-		Spinner paidThroughSpinner = (Spinner) findViewById(R.id.PaidThrough_spinner);
+		final Spinner paidThroughSpinner = (Spinner) findViewById(R.id.PaidThrough_spinner);
 		ArrayAdapter<CharSequence> paidThroughAdapter = ArrayAdapter
 				.createFromResource(this, R.array.PaidThrough,
 						android.R.layout.simple_spinner_item);
@@ -95,6 +95,9 @@ public class Proceeds_appActivity extends Activity {
 		Button next = (Button) findViewById(R.id.calculateButton);
 		next.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
+				
+				final EditText annualTextI = (EditText) findViewById(R.id.AnnualTax);
+				float annualTax = Float.valueOf(annualTextI.getText().toString());
 
 				final EditText feeAmountI = (EditText) findViewById(R.id.HOAFeesDollars);
 				float feeAmount = Float
@@ -135,18 +138,18 @@ public class Proceeds_appActivity extends Activity {
 						.toString());
 				commissionRate = (float) (commissionRate * .01);
 
-				final float resPoop = commissionRate * sellingPrice;
-				final String hope = String.valueOf(resPoop);
-
 				Intent myIntent = new Intent(view.getContext(), Results.class);
+				myIntent.putExtra("year", mYear);
+				myIntent.putExtra("month", mMonth);
+				myIntent.putExtra("day", mDay);
+				myIntent.putExtra("paidThrough", paidThroughSpinner
+						.getSelectedItem().toString());
+				myIntent.putExtra("annualTax", annualTax);
 				myIntent.putExtra("county", countySpinner.getSelectedItem()
 						.toString());
 				myIntent.putExtra("commissionRate", commissionRate);
 				myIntent.putExtra("sellingPrice", sellingPrice);
-				/*
-				 * myIntent.putExtra( "firstMortgage", firstMortgage); my
-				 * myIntent .putExtra("otherLiens" , otherLiens);
-				 */
+			
 				startActivityForResult(myIntent, 0);
 			}
 
@@ -157,7 +160,7 @@ public class Proceeds_appActivity extends Activity {
 	// updates the date in the TextView
 	private void updateDisplay() {
 		mPickDate.setText(new StringBuilder()
-				// Month is 0 based so add 1
+				// Month is 0 based so add 1 for display purposes
 				.append(mMonth + 1).append("-").append(mDay).append("-")
 				.append(mYear).append(" "));
 	}
