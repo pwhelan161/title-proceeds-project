@@ -61,11 +61,14 @@ public class Results extends Activity {
 		System.out.println("Tax amt is " + taxAmt);
 		proTax.setText(Float.toString(taxAmt));
 		
-		
-		
+		// Calc & set hoa fees
+		// Check to see that sale day is allocated to seller
 		String hoaFreq = extras.getString("hoaFreq");
-		String hoaFee = extras.getString("hoaFee");
-		String closingDate = extras.getString("closingDate");
+		float hoaFee = extras.getFloat("hoaFee");
+		TextView proHoa = (TextView) findViewById(R.id.res_prorated_hoa_decimal);
+		float feeAmount = getFeeAmount(hoaFreq, hoaFee, year, month, day);
+		proHoa.setText(Float.toString(feeAmount));
+	
 		String FirstMortgage = extras.getString("FirstMortgage");
 		String SecondMortgage = extras.getString("SecondMortgage");
 		String otherLiens = extras.getString("otherLines");
@@ -211,4 +214,33 @@ public class Results extends Activity {
     public float getTaxAmt(int daysBetween, float taxRate){
     	return (float) (daysBetween * (taxRate / 365.0));
     }
+    
+    public float getFeeAmount(String hoaFreq, float hoaAmount, int year, int month, int day){
+    	Calendar sellDate = Calendar.getInstance();
+    	Calendar startDate = Calendar.getInstance();
+    	sellDate.set(year, month, day);
+    	//Start from 1st of month
+    	if (hoaFreq.equals("Monthly")){
+    		startDate.set(year, month, 1);
+    	}
+    	// Start from 1st of Year
+    	if (hoaFreq.equals("Yearly")){
+    		startDate.set(year, 0, 1);
+    	}
+    	long fTime = startDate.getTimeInMillis();
+    	long sTime = sellDate.getTimeInMillis();
+    	fTime = sTime - fTime;
+    	int days =  (int) (fTime / (24 * 60 * 60 * 1000));
+    	
+    	float rate = (float) 0.0;
+    	if (hoaFreq.equals("Monthly")){
+    		rate = (float) (hoaAmount / sellDate.getActualMaximum(sellDate.DAY_OF_MONTH));
+    	}
+    	else{
+    		rate = (float) (hoaAmount / 365.0);
+    	}
+    	return (float) (days * rate);
+    }
+
+
 };

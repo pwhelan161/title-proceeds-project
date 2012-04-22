@@ -62,7 +62,7 @@ public class Proceeds_appActivity extends Activity {
 		paidThroughSpinner.setAdapter(paidThroughAdapter);
 
 		/* Set HOA/Condo Fees spinner */
-		Spinner hoaSpinner = (Spinner) findViewById(R.id.HOACondoFeesSpinner1);
+		final Spinner hoaSpinner = (Spinner) findViewById(R.id.HOACondoFeesSpinner1);
 		ArrayAdapter<CharSequence> hoaAdapter = ArrayAdapter
 				.createFromResource(this, R.array.HOACondoFeesSpinner1,
 						android.R.layout.simple_spinner_item);
@@ -137,6 +137,9 @@ public class Proceeds_appActivity extends Activity {
 				float commissionRate = Float.valueOf(spinner.getSelectedItem()
 						.toString());
 				commissionRate = (float) (commissionRate * .01);
+				
+				final EditText hoaFeeI = (EditText) findViewById(R.id.HOAFeesDollars);
+				float hoaFee = Float.valueOf(hoaFeeI.getText().toString());
 
 				Intent myIntent = new Intent(view.getContext(), Results.class);
 				myIntent.putExtra("year", mYear);
@@ -149,6 +152,8 @@ public class Proceeds_appActivity extends Activity {
 						.toString());
 				myIntent.putExtra("commissionRate", commissionRate);
 				myIntent.putExtra("sellingPrice", sellingPrice);
+				myIntent.putExtra("hoaFee", hoaFee);
+				myIntent.putExtra("hoaFreq", hoaSpinner.getSelectedItem().toString());
 			
 				startActivityForResult(myIntent, 0);
 			}
