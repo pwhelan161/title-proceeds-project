@@ -136,7 +136,7 @@ public class Results extends Activity {
 
 		// If under 150k, simple and return
 		if (sellPrice <= 150.0){
-			price = (float) (baseRate* 150.0);
+			price = (float) (baseRate * sellingPrice);
 			return price;
 		}
 		
