@@ -32,6 +32,25 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="1" >
+            
+             <TableRow
+                android:id="@+id/tableRow0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:padding="3dip"
+                    android:text="@string/selling_price_label" />
+
+                <EditText
+                    android:id="@+id/selling_price"
+                    android:inputType="numberDecimal"
+                    android:padding="3dip"
+                    android:scrollHorizontally="true"
+                    android:text="@string/selling_price_decimal" />
+
+                <requestFocus />
+            </TableRow>
 
             <TableRow
                 android:id="@+id/tableRowCounty"
@@ -135,24 +154,7 @@
                     android:inputType="date" />
             </TableRow>
 
-            <TableRow
-                android:id="@+id/tableRow0"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:padding="3dip"
-                    android:text="@string/selling_price_label" />
-
-                <EditText
-                    android:id="@+id/selling_price"
-                    android:inputType="numberDecimal"
-                    android:padding="3dip"
-                    android:scrollHorizontally="true"
-                    android:text="@string/selling_price_decimal" />
-
-                <requestFocus />
-            </TableRow>
+           
 
             <TableRow
                 android:id="@+id/tableRow1"

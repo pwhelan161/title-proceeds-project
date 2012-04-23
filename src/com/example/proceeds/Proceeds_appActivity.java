@@ -99,10 +99,6 @@ public class Proceeds_appActivity extends Activity {
 				final EditText annualTextI = (EditText) findViewById(R.id.AnnualTax);
 				float annualTax = Float.valueOf(annualTextI.getText().toString());
 
-				final EditText feeAmountI = (EditText) findViewById(R.id.HOAFeesDollars);
-				float feeAmount = Float
-						.valueOf(feeAmountI.getText().toString());
-
 				final EditText sellingPriceI = (EditText) findViewById(R.id.selling_price);
 				final float sellingPrice = Float.valueOf(sellingPriceI
 						.getText().toString());
@@ -120,7 +116,7 @@ public class Proceeds_appActivity extends Activity {
 						.toString());
 
 				final EditText otherRealtorI = (EditText) findViewById(R.id.other_realtor_fees_decimal);
-				float otherRealter = Float.valueOf(otherRealtorI.getText()
+				float otherRealtor = Float.valueOf(otherRealtorI.getText()
 						.toString());
 
 				final EditText gasLineI = (EditText) findViewById(R.id.gas_line_decimal);
@@ -154,6 +150,13 @@ public class Proceeds_appActivity extends Activity {
 				myIntent.putExtra("sellingPrice", sellingPrice);
 				myIntent.putExtra("hoaFee", hoaFee);
 				myIntent.putExtra("hoaFreq", hoaSpinner.getSelectedItem().toString());
+				myIntent.putExtra("firstMortgage", firstMortgage);
+				myIntent.putExtra("secondMortgage", secondMortgage);
+				myIntent.putExtra("otherLiens", otherLiens);
+				myIntent.putExtra("gasLine", gasLine);
+				myIntent.putExtra("homeWarranty", homeWarranty);
+				myIntent.putExtra("otherRealtor", otherRealtor);
+				myIntent.putExtra("sellerConcessions", sellerConcessions);
 			
 				startActivityForResult(myIntent, 0);
 			}

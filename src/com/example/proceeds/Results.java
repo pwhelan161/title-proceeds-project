@@ -56,9 +56,7 @@ public class Results extends Activity {
 		int month = extras.getInt("month");
 		int day = extras.getInt("day");
 		int daysBetween = getDaysBetween(paidThrough, year, month, day);
-		System.out.println("Days between is " + daysBetween);
 		float taxAmt = getTaxAmt(daysBetween, taxRate);
-		System.out.println("Tax amt is " + taxAmt);
 		proTax.setText(Float.toString(taxAmt));
 		
 		// Calc & set hoa fees
@@ -67,21 +65,39 @@ public class Results extends Activity {
 		float hoaFee = extras.getFloat("hoaFee");
 		TextView proHoa = (TextView) findViewById(R.id.res_prorated_hoa_decimal);
 		float feeAmount = getFeeAmount(hoaFreq, hoaFee, year, month, day);
+		System.out.println("Fee amt is " + feeAmount);
 		proHoa.setText(Float.toString(feeAmount));
 	
-		String FirstMortgage = extras.getString("FirstMortgage");
-		String SecondMortgage = extras.getString("SecondMortgage");
-		String otherLiens = extras.getString("otherLines");
-		String otherRealtor = extras.getString("otherRealtor");
-		String gasLine = extras.getString("gasLine");
-		String homeWarranty = extras.getString("homeWarranty");
+		float firstMortgage = extras.getFloat("firstMortgage");
+		float secondMortgage = extras.getFloat("secondMortgage");
+		float otherLiens = extras.getFloat("otherLiens");
+		float otherRealtor = extras.getFloat("otherRealtor");
+		float gasLine = extras.getFloat("gasLine");
+		float homeWarranty = extras.getFloat("homeWarranty");
+		float sellerConcessions = extras.getFloat("sellerConcessions");
+		
+		/* Not worth grabbing these from config for now */
+		float shipping = (float) 25.0;
+		float settlement = (float) 50.0;
+		float titleExam = (float) 185.0;
+		float titleInsurance = (float) 50.0;
+		float deedPrep = (float) 50.0;
+		
+		float netToSeller = sellingPrice - commission - conveyanceFee - titleCost
+				- taxAmt - (-1 * feeAmount) - firstMortgage - secondMortgage
+				- otherLiens - otherRealtor - gasLine - homeWarranty - 
+				sellerConcessions - shipping - settlement - titleExam -
+				titleInsurance - deedPrep;
+		
+		TextView netSell = (TextView) findViewById(R.id.res_netSeller_decmial);
+		netSell.setText(Float.toString(netToSeller));
 		
 
 	}
 	
 	public float getCountyRate(String county){
 		/* Get the county rates, as per the email sent to me */
-
+        /* Not worth putting these in config file for now */
 		float rate = (float) 0.0;
 		if (county.equals("Delaware")){
 			rate = (float) 0.30;
@@ -127,7 +143,6 @@ public class Results extends Activity {
 	}
 	
 	public float getTitleCost(float sellingPrice){
-
 		
 		float price = (float) 0.0;
 		float sellPrice = roundThou(sellingPrice) / 1000;
@@ -204,11 +219,8 @@ public class Results extends Activity {
     	Calendar second = Calendar.getInstance();
     	first.set(year, month, day);
     	second.set(startYear, startMonth, startDay);
-    	long fTime = first.getTimeInMillis();
-    	long sTime = second.getTimeInMillis();
-    	fTime = fTime - sTime;
-    	//Return in days
-    	return (int) (fTime / (24 * 60 * 60 * 1000));
+    	int between = daysBetween(second, first);
+    	return between;
     }
 
     public float getTaxAmt(int daysBetween, float taxRate){
@@ -219,6 +231,7 @@ public class Results extends Activity {
     	Calendar sellDate = Calendar.getInstance();
     	Calendar startDate = Calendar.getInstance();
     	sellDate.set(year, month, day);
+    	
     	//Start from 1st of month
     	if (hoaFreq.equals("Monthly")){
     		startDate.set(year, month, 1);
@@ -227,19 +240,32 @@ public class Results extends Activity {
     	if (hoaFreq.equals("Yearly")){
     		startDate.set(year, 0, 1);
     	}
-    	long fTime = startDate.getTimeInMillis();
-    	long sTime = sellDate.getTimeInMillis();
-    	fTime = sTime - fTime;
-    	int days =  (int) (fTime / (24 * 60 * 60 * 1000));
+    	
+    	int days = daysBetween(startDate, sellDate);
+    	System.out.println("between is " + days);
     	
     	float rate = (float) 0.0;
     	if (hoaFreq.equals("Monthly")){
+    		System.out.println("days in month is " + sellDate.getActualMaximum(sellDate.DAY_OF_MONTH));
     		rate = (float) (hoaAmount / sellDate.getActualMaximum(sellDate.DAY_OF_MONTH));
+    		return (float) (hoaAmount - (days * rate));
     	}
     	else{
     		rate = (float) (hoaAmount / 365.0);
+    		// Add the + 1 as it should compensate for the middle day of the year
+    		return (float) ((days + 1) * rate);
     	}
-    	return (float) (days * rate);
+    	
+    }
+    
+    public static int daysBetween(Calendar startDate, Calendar endDate) {  
+    	  Calendar date = (Calendar) startDate.clone();  
+    	  long daysBetween = 0;  
+    	  while (date.before(endDate)) {  
+    	    date.add(Calendar.DAY_OF_MONTH, 1);  
+    	    daysBetween++;  
+    	  }  
+    	  return (int) daysBetween;
     }
 
 

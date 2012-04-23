@@ -5,6 +5,23 @@
     android:stretchColumns="1" >
 
     <TableRow
+        android:id="@+id/res_netSeller_row"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/res_netSeller_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/res_netSeller_label" />
+
+        <TextView
+            android:id="@+id/res_netSeller_decmial"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
         android:id="@+id/res_commission_row"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >

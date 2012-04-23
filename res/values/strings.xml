@@ -68,7 +68,7 @@
     <string name="home_warranty_label">Home Warranty</string>
     <string name="home_warranty_decimal">0.0</string>
     <string name="res_s_h_label">S &amp; H</string>
-    <string name="res_s_h_decimal">0.0</string>
+    <string name="res_s_h_decimal">25.0</string>
     <string name="seller_concessions_label">Seller Concessions</string>
     <string name="seller_concessions_decimal">0.0</string>
     <string name="PaidThrough_label">Paid through</string>
@@ -97,5 +97,6 @@
     <string name="res_realtor_commission_calculated">0.0</string>
     <string name="AnnualTax">Annual Tax</string>
     <string name="AnnualTaxDecimal">0.0</string>
+    <string name="res_netSeller_label">Net to Seller</string>
 
 </resources>
