@@ -47,7 +47,7 @@
                     android:inputType="numberDecimal"
                     android:padding="3dip"
                     android:scrollHorizontally="true"
-                    android:text="@string/selling_price_decimal" 
+                    android:hint="@string/selling_price_decimal" 
                     android:selectAllOnFocus="True"/>
 
             </TableRow>
@@ -67,7 +67,8 @@
                     android:id="@+id/county_spinner"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1" 
+                    android:imeOptions="actionNext"/>
             </TableRow>
 
             <TableRow
@@ -84,7 +85,7 @@
                     android:layout_width="fill_parent"
                     android:layout_weight="1"
                     android:inputType="numberDecimal"
-                    android:text="@string/AnnualTaxDecimal"/>
+                    android:hint="@string/AnnualTaxDecimal"/>
                      
             </TableRow>
 
@@ -138,7 +139,7 @@
                     android:layout_width="fill_parent"
                     android:layout_weight="1"
                     android:inputType="numberDecimal"
-                    android:text="@string/HOACondoFeesDecimal" />
+                    android:hint="@string/HOACondoFeesDecimal" />
             </TableRow>
 
             <TableRow
@@ -172,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="@string/first_mortgage_decimal" >
+                    android:hint="@string/first_mortgage_decimal" >
                 </EditText>
             </TableRow>
 
@@ -192,7 +193,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="@string/second_mortgage_decimal" >
+                    android:hint="@string/second_mortgage_decimal" >
                 </EditText>
             </TableRow>
 
@@ -212,7 +213,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="@string/other_liens_decimal" >
+                    android:hint="@string/other_liens_decimal" >
                 </EditText>
             </TableRow>
 
@@ -249,7 +250,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="@string/other_realtor_fees_decimal" >
+                    android:hint="@string/other_realtor_fees_decimal" >
                 </EditText>
             </TableRow>
 
@@ -270,7 +271,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="@string/gas_line_decimal" >
+                    android:hint="@string/gas_line_decimal" >
                 </EditText>
             </TableRow>
 
@@ -291,7 +292,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="@string/home_warranty_decimal" >
+                    android:hint="@string/home_warranty_decimal" >
                 </EditText>
             </TableRow>
 
@@ -312,7 +313,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="@string/seller_concessions_decimal" >
+                    android:hint="@string/seller_concessions_decimal" >
                 </EditText>
             </TableRow>
         </TableLayout>

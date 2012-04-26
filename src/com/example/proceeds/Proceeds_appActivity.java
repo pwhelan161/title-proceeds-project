@@ -9,12 +9,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 public class Proceeds_appActivity extends Activity {
 
@@ -44,7 +47,7 @@ public class Proceeds_appActivity extends Activity {
 		spinner.setAdapter(adapter);
 		spinner.setFocusable(true);
 		spinner.setFocusableInTouchMode(true);
-
+		
 		/* Set county spinner */
 		final Spinner countySpinner = (Spinner) findViewById(R.id.county_spinner);
 		ArrayAdapter<CharSequence> countyAdapter = ArrayAdapter
@@ -55,6 +58,7 @@ public class Proceeds_appActivity extends Activity {
 		countySpinner.setAdapter(countyAdapter);
 		countySpinner.setFocusable(true);
 		countySpinner.setFocusableInTouchMode(true);
+		
 
 		/* Set paid through spinner */
 		final Spinner paidThroughSpinner = (Spinner) findViewById(R.id.PaidThrough_spinner);
@@ -98,6 +102,22 @@ public class Proceeds_appActivity extends Activity {
 		// display the current date (this method is below)
 		updateDisplay();
 		/* Finished setting & updating datepicker */
+		
+		
+		// Set up listeners so spinners go to next item on select
+		/*spinner.setOnItemSelectedListener(new OnItemSelectedListener(){
+			public void onItemSelected(AdapterView<?>arg0, View arg1, int arg2, long arg3)
+			{
+				countySpinner.requestFocus(1);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				requestFocus(FOCUS_DOWN);
+			}
+			
+		});*/
 
 		/* Ready calculate button to go to other activity */
 		Button next = (Button) findViewById(R.id.calculateButton);
@@ -105,8 +125,14 @@ public class Proceeds_appActivity extends Activity {
 			public void onClick(View view) {
 
 				final EditText annualTextI = (EditText) findViewById(R.id.AnnualTax);
-				float annualTax = Float.valueOf(annualTextI.getText()
+				float annualTax = (float) 0.0;
+				try{
+					annualTax = Float.valueOf(annualTextI.getText()
 						.toString());
+				}
+				catch (NumberFormatException NFE){
+					annualTax = (float) 0.0;
+				}
 
 				final EditText sellingPriceI = (EditText) findViewById(R.id.selling_price);
 				float sellingPrice = (float) 0.0;
@@ -224,6 +250,13 @@ public class Proceeds_appActivity extends Activity {
 
 	};
 
+	/*public void onItemSelected(AdapterView<?> parent, View v, int position,
+			   long id) {
+			  // TODO Auto-generated method stub
+			  selection.setText(items[position]);
+
+			 }*/
+	
 	// updates the date in the TextView
 	private void updateDisplay() {
 		mPickDate.setText(new StringBuilder()
