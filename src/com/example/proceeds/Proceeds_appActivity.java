@@ -42,6 +42,8 @@ public class Proceeds_appActivity extends Activity {
 				android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
+		spinner.setFocusable(true);
+		spinner.setFocusableInTouchMode(true);
 
 		/* Set county spinner */
 		final Spinner countySpinner = (Spinner) findViewById(R.id.county_spinner);
@@ -51,6 +53,8 @@ public class Proceeds_appActivity extends Activity {
 		countyAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		countySpinner.setAdapter(countyAdapter);
+		countySpinner.setFocusable(true);
+		countySpinner.setFocusableInTouchMode(true);
 
 		/* Set paid through spinner */
 		final Spinner paidThroughSpinner = (Spinner) findViewById(R.id.PaidThrough_spinner);
@@ -60,6 +64,8 @@ public class Proceeds_appActivity extends Activity {
 		paidThroughAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		paidThroughSpinner.setAdapter(paidThroughAdapter);
+		paidThroughSpinner.setFocusable(true);
+		paidThroughSpinner.setFocusableInTouchMode(true);
 
 		/* Set HOA/Condo Fees spinner */
 		final Spinner hoaSpinner = (Spinner) findViewById(R.id.HOACondoFeesSpinner1);
@@ -69,6 +75,8 @@ public class Proceeds_appActivity extends Activity {
 		hoaAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		hoaSpinner.setAdapter(hoaAdapter);
+		hoaSpinner.setFocusable(true);
+		hoaSpinner.setFocusableInTouchMode(true);
 
 		/* Set the date picker & initialize it */
 		// capture our View elements
@@ -95,47 +103,97 @@ public class Proceeds_appActivity extends Activity {
 		Button next = (Button) findViewById(R.id.calculateButton);
 		next.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				
+
 				final EditText annualTextI = (EditText) findViewById(R.id.AnnualTax);
-				float annualTax = Float.valueOf(annualTextI.getText().toString());
+				float annualTax = Float.valueOf(annualTextI.getText()
+						.toString());
 
 				final EditText sellingPriceI = (EditText) findViewById(R.id.selling_price);
-				final float sellingPrice = Float.valueOf(sellingPriceI
-						.getText().toString());
+				float sellingPrice = (float) 0.0;
+				try {
+					sellingPrice = Float.valueOf(sellingPriceI.getText()
+							.toString());
+				} catch (NumberFormatException NFE) {
+					sellingPrice = (float) 0.0;
+
+				}
 
 				final EditText firstMortgageI = (EditText) findViewById(R.id.first_mortgage_decimal);
-				float firstMortgage = Float.valueOf(firstMortgageI.getText()
-						.toString());
+				float firstMortgage = (float) 0.0;
+				try{
+				firstMortgage = Float.valueOf(firstMortgageI.getText()
+						.toString());}
+				catch (NumberFormatException NFE){
+					firstMortgage = (float) 0.0;
+				}
 
 				final EditText secondMortgageI = (EditText) findViewById(R.id.second_mortgage_decimal);
-				final float secondMortgage = Float.valueOf(secondMortgageI
-						.getText().toString());
+				float secondMortgage = (float) 0.0;
+				try{
+				secondMortgage = Float.valueOf(secondMortgageI
+						.getText().toString());}
+				catch (NumberFormatException NFE){
+					secondMortgage = (float) 0.0;
+				}
 
 				final EditText otherLiensI = (EditText) findViewById(R.id.other_liens_decimal);
-				final float otherLiens = Float.valueOf(otherLiensI.getText()
-						.toString());
+				float otherLiens = (float) 0.0;
+				try {
+				otherLiens = Float.valueOf(otherLiensI.getText()
+						.toString()); }
+				catch (NumberFormatException NFE) {
+					otherLiens = (float) 0.0;
+				}
 
 				final EditText otherRealtorI = (EditText) findViewById(R.id.other_realtor_fees_decimal);
-				float otherRealtor = Float.valueOf(otherRealtorI.getText()
-						.toString());
+				float otherRealtor = (float) 0.0;
+				try {
+				otherRealtor = Float.valueOf(otherRealtorI.getText()
+						.toString()); }
+				catch (NumberFormatException NFE) {
+					otherRealtor = (float) 0.0;
+				}
 
 				final EditText gasLineI = (EditText) findViewById(R.id.gas_line_decimal);
-				float gasLine = Float.valueOf(gasLineI.getText().toString());
+				float gasLine = (float) 0.0;
+				try{
+					gasLine = Float.valueOf(gasLineI.getText().toString());
+				}
+				catch (NumberFormatException NFE) {
+					gasLine = (float) 0.0;
+				}
 
 				final EditText homeWarrantyI = (EditText) findViewById(R.id.home_warranty_decimal);
-				float homeWarranty = Float.valueOf(homeWarrantyI.getText()
-						.toString());
+				float homeWarranty = (float) 0.0;
+				try{
+					homeWarranty = Float.valueOf(homeWarrantyI.getText().toString());
+				}
+				catch (NumberFormatException NFE) {
+					homeWarranty = (float) 0.0;
+				}
 
 				final EditText sellerConcessionsI = (EditText) findViewById(R.id.seller_concessions_decimal);
-				float sellerConcessions = Float.valueOf(sellerConcessionsI
+				float sellerConcessions = (float) 0.0;
+				try{
+					sellerConcessions = Float.valueOf(sellerConcessionsI
 						.getText().toString());
+				}
+				catch (NumberFormatException NFE) {
+					sellerConcessions = (float) 0.0;
+				}
 
 				float commissionRate = Float.valueOf(spinner.getSelectedItem()
 						.toString());
 				commissionRate = (float) (commissionRate * .01);
-				
+
 				final EditText hoaFeeI = (EditText) findViewById(R.id.HOAFeesDollars);
-				float hoaFee = Float.valueOf(hoaFeeI.getText().toString());
+				float hoaFee = (float) 0.0;
+				try{
+					hoaFee = Float.valueOf(hoaFeeI.getText().toString());
+				}
+				catch (NumberFormatException NFE) {
+					hoaFee = (float) 0.0;
+				}
 
 				Intent myIntent = new Intent(view.getContext(), Results.class);
 				myIntent.putExtra("year", mYear);
@@ -149,7 +207,8 @@ public class Proceeds_appActivity extends Activity {
 				myIntent.putExtra("commissionRate", commissionRate);
 				myIntent.putExtra("sellingPrice", sellingPrice);
 				myIntent.putExtra("hoaFee", hoaFee);
-				myIntent.putExtra("hoaFreq", hoaSpinner.getSelectedItem().toString());
+				myIntent.putExtra("hoaFreq", hoaSpinner.getSelectedItem()
+						.toString());
 				myIntent.putExtra("firstMortgage", firstMortgage);
 				myIntent.putExtra("secondMortgage", secondMortgage);
 				myIntent.putExtra("otherLiens", otherLiens);
@@ -157,7 +216,7 @@ public class Proceeds_appActivity extends Activity {
 				myIntent.putExtra("homeWarranty", homeWarranty);
 				myIntent.putExtra("otherRealtor", otherRealtor);
 				myIntent.putExtra("sellerConcessions", sellerConcessions);
-			
+
 				startActivityForResult(myIntent, 0);
 			}
 

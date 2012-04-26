@@ -47,9 +47,9 @@
                     android:inputType="numberDecimal"
                     android:padding="3dip"
                     android:scrollHorizontally="true"
-                    android:text="@string/selling_price_decimal" />
+                    android:text="@string/selling_price_decimal" 
+                    android:selectAllOnFocus="True"/>
 
-                <requestFocus />
             </TableRow>
 
             <TableRow

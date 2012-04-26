@@ -26,10 +26,10 @@ public class Results extends Activity {
 		//Calc & set commission
 		float commissionRate = extras.getFloat("commissionRate");
 		float sellingPrice = extras.getFloat("sellingPrice");
-		float commission = commissionRate * sellingPrice;
+		int commission = (int) (commissionRate * sellingPrice);
 		TextView text1 = (TextView) findViewById(R.id.res_commission_decimal);
-		commission = roundMoney(commission);
-		final String commissionOut = Float.toString(commission);
+		//commission = roundMoney(commission);
+		final String commissionOut = Integer.toString(commission);
 		text1.setText(commissionOut);
 		
 		//Calc & set conveyance fee
@@ -37,15 +37,15 @@ public class Results extends Activity {
 		String county = extras.getString("county");
 			TextView conveyance= (TextView) findViewById(R.id.res_conveyance_fee_decimal);
 		float countyRate = getCountyRate(county);
-		float conveyanceFee = getConveyanceFee(countyRate, sellingPrice);
-		conveyanceFee = roundMoney(conveyanceFee);
-		conveyance.setText(Float.toString(conveyanceFee));
+		int conveyanceFee = (int) getConveyanceFee(countyRate, sellingPrice);
+		//conveyanceFee = roundMoney(conveyanceFee);
+		conveyance.setText(Integer.toString(conveyanceFee));
 		
 		//Calc & set title premium
 		TextView homeTitle = (TextView) findViewById(R.id.res_homeowner_title_decimal);
-		float titleCost = getTitleCost(sellingPrice);
-		titleCost = roundMoney(titleCost);
-		homeTitle.setText(Float.toString(titleCost));
+		int titleCost = (int) getTitleCost(sellingPrice);
+		//titleCost = roundMoney(titleCost);
+		homeTitle.setText(Integer.toString(titleCost));
 		
 		// Calc & set prorated taxes
 		TextView proTax = (TextView) findViewById(R.id.res_prorated_taxes_decimal);
@@ -56,17 +56,16 @@ public class Results extends Activity {
 		int month = extras.getInt("month");
 		int day = extras.getInt("day");
 		int daysBetween = getDaysBetween(paidThrough, year, month, day);
-		float taxAmt = getTaxAmt(daysBetween, taxRate);
-		proTax.setText(Float.toString(taxAmt));
+		int taxAmt = (int) getTaxAmt(daysBetween, taxRate);
+		proTax.setText(Integer.toString(taxAmt));
 		
 		// Calc & set hoa fees
 		// Check to see that sale day is allocated to seller
 		String hoaFreq = extras.getString("hoaFreq");
 		float hoaFee = extras.getFloat("hoaFee");
 		TextView proHoa = (TextView) findViewById(R.id.res_prorated_hoa_decimal);
-		float feeAmount = getFeeAmount(hoaFreq, hoaFee, year, month, day);
-		System.out.println("Fee amt is " + feeAmount);
-		proHoa.setText(Float.toString(feeAmount));
+		int feeAmount = (int) getFeeAmount(hoaFreq, hoaFee, year, month, day);
+		proHoa.setText(Integer.toString(feeAmount));
 	
 		float firstMortgage = extras.getFloat("firstMortgage");
 		float secondMortgage = extras.getFloat("secondMortgage");
@@ -83,14 +82,14 @@ public class Results extends Activity {
 		float titleInsurance = (float) 50.0;
 		float deedPrep = (float) 50.0;
 		
-		float netToSeller = sellingPrice - commission - conveyanceFee - titleCost
+		int netToSeller = (int) (sellingPrice - commission - conveyanceFee - titleCost
 				- taxAmt - (-1 * feeAmount) - firstMortgage - secondMortgage
 				- otherLiens - otherRealtor - gasLine - homeWarranty - 
 				sellerConcessions - shipping - settlement - titleExam -
-				titleInsurance - deedPrep;
+				titleInsurance - deedPrep);
 		
 		TextView netSell = (TextView) findViewById(R.id.res_netSeller_decmial);
-		netSell.setText(Float.toString(netToSeller));
+		netSell.setText(Integer.toString(netToSeller));
 		
 
 	}
@@ -146,7 +145,6 @@ public class Results extends Activity {
 		
 		float price = (float) 0.0;
 		float sellPrice = roundThou(sellingPrice) / 1000;
-		System.out.println("selp is " + sellPrice);
 		float baseRate = (float) 6.6125;
 		float secondRate = (float) 5.175;
 		float thirdRate = (float) 4.025;
@@ -243,11 +241,9 @@ public class Results extends Activity {
     	}
     	
     	int days = daysBetween(startDate, sellDate);
-    	System.out.println("between is " + days);
     	
     	float rate = (float) 0.0;
     	if (hoaFreq.equals("Monthly")){
-    		System.out.println("days in month is " + sellDate.getActualMaximum(sellDate.DAY_OF_MONTH));
     		rate = (float) (hoaAmount / sellDate.getActualMaximum(sellDate.DAY_OF_MONTH));
     		return (float) (hoaAmount - (days * rate));
     	}
