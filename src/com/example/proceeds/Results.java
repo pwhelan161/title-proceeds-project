@@ -146,6 +146,7 @@ public class Results extends Activity {
 		
 		float price = (float) 0.0;
 		float sellPrice = roundThou(sellingPrice) / 1000;
+		System.out.println("selp is " + sellPrice);
 		float baseRate = (float) 6.6125;
 		float secondRate = (float) 5.175;
 		float thirdRate = (float) 4.025;
@@ -154,7 +155,7 @@ public class Results extends Activity {
 
 		// If under 150k, simple and return
 		if (sellPrice <= 150.0){
-			price = (float) (baseRate * sellingPrice);
+			price = (float) (baseRate * sellPrice);
 			return price;
 		}
 		
