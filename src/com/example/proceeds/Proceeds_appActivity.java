@@ -1,14 +1,12 @@
 package com.example.proceeds;
 
 import java.util.Calendar;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -39,15 +37,15 @@ public class Proceeds_appActivity extends Activity {
 		// Declaring all variables
 
 		/* Set commission spinner */
-		final Spinner spinner = (Spinner) findViewById(R.id.realtor_commissions_spinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+		final Spinner commissionSpinner = (Spinner) findViewById(R.id.realtor_commissions_spinner);
+		ArrayAdapter<CharSequence> commissionAdapter = ArrayAdapter.createFromResource(
 				this, R.array.realtor_commissions_prompt,
 				android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinner.setAdapter(adapter);
-		spinner.setFocusable(true);
-		spinner.setFocusableInTouchMode(true);
-		
+		commissionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		commissionSpinner.setAdapter(commissionAdapter);
+		commissionSpinner.setFocusable(true);
+		commissionSpinner.setFocusableInTouchMode(true);
+
 		/* Set county spinner */
 		final Spinner countySpinner = (Spinner) findViewById(R.id.county_spinner);
 		ArrayAdapter<CharSequence> countyAdapter = ArrayAdapter
@@ -58,7 +56,6 @@ public class Proceeds_appActivity extends Activity {
 		countySpinner.setAdapter(countyAdapter);
 		countySpinner.setFocusable(true);
 		countySpinner.setFocusableInTouchMode(true);
-		
 
 		/* Set paid through spinner */
 		final Spinner paidThroughSpinner = (Spinner) findViewById(R.id.PaidThrough_spinner);
@@ -102,35 +99,25 @@ public class Proceeds_appActivity extends Activity {
 		// display the current date (this method is below)
 		updateDisplay();
 		/* Finished setting & updating datepicker */
-		
-		
-		// Set up listeners so spinners go to next item on select
-		/*spinner.setOnItemSelectedListener(new OnItemSelectedListener(){
-			public void onItemSelected(AdapterView<?>arg0, View arg1, int arg2, long arg3)
-			{
-				countySpinner.requestFocus(1);
-			}
 
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
-				requestFocus(FOCUS_DOWN);
-			}
-			
-		});*/
+		// Set up listeners so spinners go to next item on select
+		localOnItemSelectedListener testListener = new localOnItemSelectedListener();
+		commissionSpinner.setAdapter(commissionAdapter);
+		commissionSpinner.setOnItemSelectedListener(testListener);
+		countySpinner.setAdapter(countyAdapter);
+		countySpinner.setOnItemSelectedListener(testListener);
 
 		/* Ready calculate button to go to other activity */
 		Button next = (Button) findViewById(R.id.calculateButton);
 		next.setOnClickListener(new View.OnClickListener() {
+
 			public void onClick(View view) {
 
 				final EditText annualTextI = (EditText) findViewById(R.id.AnnualTax);
 				float annualTax = (float) 0.0;
-				try{
-					annualTax = Float.valueOf(annualTextI.getText()
-						.toString());
-				}
-				catch (NumberFormatException NFE){
+				try {
+					annualTax = Float.valueOf(annualTextI.getText().toString());
+				} catch (NumberFormatException NFE) {
 					annualTax = (float) 0.0;
 				}
 
@@ -146,78 +133,75 @@ public class Proceeds_appActivity extends Activity {
 
 				final EditText firstMortgageI = (EditText) findViewById(R.id.first_mortgage_decimal);
 				float firstMortgage = (float) 0.0;
-				try{
-				firstMortgage = Float.valueOf(firstMortgageI.getText()
-						.toString());}
-				catch (NumberFormatException NFE){
+				try {
+					firstMortgage = Float.valueOf(firstMortgageI.getText()
+							.toString());
+				} catch (NumberFormatException NFE) {
 					firstMortgage = (float) 0.0;
 				}
 
 				final EditText secondMortgageI = (EditText) findViewById(R.id.second_mortgage_decimal);
 				float secondMortgage = (float) 0.0;
-				try{
-				secondMortgage = Float.valueOf(secondMortgageI
-						.getText().toString());}
-				catch (NumberFormatException NFE){
+				try {
+					secondMortgage = Float.valueOf(secondMortgageI.getText()
+							.toString());
+				} catch (NumberFormatException NFE) {
 					secondMortgage = (float) 0.0;
 				}
 
 				final EditText otherLiensI = (EditText) findViewById(R.id.other_liens_decimal);
 				float otherLiens = (float) 0.0;
 				try {
-				otherLiens = Float.valueOf(otherLiensI.getText()
-						.toString()); }
-				catch (NumberFormatException NFE) {
+					otherLiens = Float
+							.valueOf(otherLiensI.getText().toString());
+				} catch (NumberFormatException NFE) {
 					otherLiens = (float) 0.0;
 				}
 
 				final EditText otherRealtorI = (EditText) findViewById(R.id.other_realtor_fees_decimal);
 				float otherRealtor = (float) 0.0;
 				try {
-				otherRealtor = Float.valueOf(otherRealtorI.getText()
-						.toString()); }
-				catch (NumberFormatException NFE) {
+					otherRealtor = Float.valueOf(otherRealtorI.getText()
+							.toString());
+				} catch (NumberFormatException NFE) {
 					otherRealtor = (float) 0.0;
 				}
 
 				final EditText gasLineI = (EditText) findViewById(R.id.gas_line_decimal);
 				float gasLine = (float) 0.0;
-				try{
+				try {
 					gasLine = Float.valueOf(gasLineI.getText().toString());
-				}
-				catch (NumberFormatException NFE) {
+				} catch (NumberFormatException NFE) {
 					gasLine = (float) 0.0;
 				}
 
 				final EditText homeWarrantyI = (EditText) findViewById(R.id.home_warranty_decimal);
 				float homeWarranty = (float) 0.0;
-				try{
-					homeWarranty = Float.valueOf(homeWarrantyI.getText().toString());
-				}
-				catch (NumberFormatException NFE) {
+				try {
+					homeWarranty = Float.valueOf(homeWarrantyI.getText()
+							.toString());
+				} catch (NumberFormatException NFE) {
 					homeWarranty = (float) 0.0;
 				}
 
 				final EditText sellerConcessionsI = (EditText) findViewById(R.id.seller_concessions_decimal);
 				float sellerConcessions = (float) 0.0;
-				try{
+				try {
 					sellerConcessions = Float.valueOf(sellerConcessionsI
-						.getText().toString());
-				}
-				catch (NumberFormatException NFE) {
+							.getText().toString());
+				} catch (NumberFormatException NFE) {
 					sellerConcessions = (float) 0.0;
 				}
 
-				float commissionRate = Float.valueOf(spinner.getSelectedItem()
+				float commissionRate = Float.valueOf(commissionSpinner.getSelectedItem()
 						.toString());
 				commissionRate = (float) (commissionRate * .01);
 
 				final EditText hoaFeeI = (EditText) findViewById(R.id.HOAFeesDollars);
 				float hoaFee = (float) 0.0;
-				try{
+				try {
 					hoaFee = Float.valueOf(hoaFeeI.getText().toString());
-				}
-				catch (NumberFormatException NFE) {
+				} catch (NumberFormatException NFE) {
 					hoaFee = (float) 0.0;
 				}
 
@@ -249,14 +233,39 @@ public class Proceeds_appActivity extends Activity {
 		});
 
 	};
-
-	/*public void onItemSelected(AdapterView<?> parent, View v, int position,
-			   long id) {
-			  // TODO Auto-generated method stub
-			  selection.setText(items[position]);
-
-			 }*/
 	
+	
+	// This has yet to fix the problem with spinners omving to the next element
+	public class localOnItemSelectedListener implements OnItemSelectedListener{
+		
+		int spinnerInit = 0;
+		int NUMBER_SPINNERS = 1; // There are FOUR spinners...?
+		@Override
+		public void onItemSelected(AdapterView<?> parent, View view, int pos,
+				long id) {
+			if (spinnerInit < NUMBER_SPINNERS){
+				spinnerInit++;
+				//System.out.println("Hay!");
+			}
+			else{
+				//System.out.print("View is ");
+				//view.requestFocus(view.FOCUS_DOWN);
+			}
+			
+		}
+
+		@Override
+		public void onNothingSelected(AdapterView<?> arg0) {
+			// TODO Auto-generated method stub
+			//System.out.println("WTF mate?");
+			
+		}
+		
+	}
+	
+
+	
+
 	// updates the date in the TextView
 	private void updateDisplay() {
 		mPickDate.setText(new StringBuilder()

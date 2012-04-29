@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, Proceeds_appActivity!</string>
-    <string name="app_name">Proceeds_app</string>
+    <string name="app_name">ATG: Net to Seller</string>
     <string name="county_label">County</string>
 
     <string-array name="county_spinner">

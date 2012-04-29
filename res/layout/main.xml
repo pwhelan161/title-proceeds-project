@@ -23,6 +23,7 @@
         </TableRow>
     </TableLayout>
 
+    <!--  <TableRow >  test row -->
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
@@ -55,7 +56,8 @@
             <TableRow
                 android:id="@+id/tableRowCounty"
                 android:layout_width="100dip"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:nextFocusDown="@+id/AnnualTax">
 
                 <TextView
                     android:id="@+id/county_label"
@@ -67,8 +69,8 @@
                     android:id="@+id/county_spinner"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" 
-                    android:imeOptions="actionNext"/>
+                    android:layout_weight="1"
+                    android:nextFocusDown="@+id/AnnualTax"/>
             </TableRow>
 
             <TableRow
@@ -250,6 +252,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:focusableInTouchMode="true"
                     android:hint="@string/other_realtor_fees_decimal" >
                 </EditText>
             </TableRow>
@@ -318,5 +321,6 @@
             </TableRow>
         </TableLayout>
     </ScrollView>
-
+    <!-- </TableRow> End of test table -->
+<!-- </TableLayout>  End of test table layout -->
 </LinearLayout>
