@@ -249,7 +249,7 @@ public class Proceeds_appActivity extends Activity {
 			}
 			else{
 				//System.out.print("View is ");
-				//view.requestFocus(view.FOCUS_DOWN);
+				view.requestFocus(view.FOCUS_DOWN);
 			}
 			
 		}
