@@ -70,7 +70,9 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:nextFocusDown="@+id/AnnualTax"/>
+                    android:nextFocusDown="@+id/AnnualTax"
+                    android:focusable="True"
+                    android:focusableInTouchMode="True"/>
             </TableRow>
 
             <TableRow
@@ -106,7 +108,9 @@
                     android:id="@+id/PaidThrough_spinner"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1" 
+                    android:focusable="true"
+                    android:focusableInTouchMode="True"/>
             </TableRow>
 
             <TableRow
@@ -123,7 +127,9 @@
                     android:id="@+id/HOACondoFeesSpinner1"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1" 
+                    android:focusable="True"
+                    android:focusableInTouchMode="True"/>
             </TableRow>
 
             <TableRow
@@ -236,7 +242,9 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" 
-                    android:nextFocusDown="@+id/AnnualTax"/>
+                    android:nextFocusDown="@+id/AnnualTax"
+                    android:focusable="True"
+                    android:focusableInTouchMode="True"/>
             </TableRow>
 
             <TableRow
