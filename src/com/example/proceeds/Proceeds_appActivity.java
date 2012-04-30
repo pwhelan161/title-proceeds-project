@@ -1,6 +1,9 @@
 package com.example.proceeds;
 
 import java.util.Calendar;
+
+import com.example.proceeds.Proceeds_appActivity.localOnItemSelectedListener;
+
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -27,6 +30,15 @@ public class Proceeds_appActivity extends Activity {
 	private int mDay;
 
 	static final int DATE_DIALOG_ID = 0;
+	
+	Spinner countySpinner = (Spinner) null;
+	Spinner commissionSpinner = (Spinner) null;
+	Spinner paidThroughSpinner = (Spinner) null;
+	Spinner hoaSpinner = (Spinner) null;
+	EditText annualTextI = null;
+	EditText otherRealtorI = null;
+	EditText feeAmountI = null;
+	
 
 	/** Called when the activity is first created. */
 	@Override
@@ -35,6 +47,10 @@ public class Proceeds_appActivity extends Activity {
 		setContentView(R.layout.main);
 
 		// Declaring all variables
+		
+		annualTextI = (EditText) findViewById(R.id.AnnualTax);
+		otherRealtorI = (EditText) findViewById(R.id.other_realtor_fees_decimal);
+		feeAmountI = (EditText) findViewById(R.id.HOAFeesDollars);
 
 		/* Set commission spinner */
 		final Spinner commissionSpinner = (Spinner) findViewById(R.id.realtor_commissions_spinner);
@@ -45,9 +61,11 @@ public class Proceeds_appActivity extends Activity {
 		commissionSpinner.setAdapter(commissionAdapter);
 		commissionSpinner.setFocusable(true);
 		commissionSpinner.setFocusableInTouchMode(true);
+		
 
 		/* Set county spinner */
-		final Spinner countySpinner = (Spinner) findViewById(R.id.county_spinner);
+		//final Spinner 
+		countySpinner = (Spinner) findViewById(R.id.county_spinner);
 		ArrayAdapter<CharSequence> countyAdapter = ArrayAdapter
 				.createFromResource(this, R.array.county_spinner,
 						android.R.layout.simple_spinner_item);
@@ -56,6 +74,7 @@ public class Proceeds_appActivity extends Activity {
 		countySpinner.setAdapter(countyAdapter);
 		countySpinner.setFocusable(true);
 		countySpinner.setFocusableInTouchMode(true);
+		
 
 		/* Set paid through spinner */
 		final Spinner paidThroughSpinner = (Spinner) findViewById(R.id.PaidThrough_spinner);
@@ -101,11 +120,15 @@ public class Proceeds_appActivity extends Activity {
 		/* Finished setting & updating datepicker */
 
 		// Set up listeners so spinners go to next item on select
-		localOnItemSelectedListener testListener = new localOnItemSelectedListener();
-		commissionSpinner.setAdapter(commissionAdapter);
-		commissionSpinner.setOnItemSelectedListener(testListener);
-		countySpinner.setAdapter(countyAdapter);
-		countySpinner.setOnItemSelectedListener(testListener);
+		//localOnItemSelectedListener testListener = new localOnItemSelectedListener();
+		localOnItemSelectedListener comLis = new localOnItemSelectedListener(otherRealtorI);
+		localOnItemSelectedListener countLis = new localOnItemSelectedListener(annualTextI);
+		localOnItemSelectedListener paidLis = new localOnItemSelectedListener(hoaSpinner);
+		localOnItemSelectedListener hoaLis = new localOnItemSelectedListener(feeAmountI);
+		commissionSpinner.setOnItemSelectedListener(comLis);
+		countySpinner.setOnItemSelectedListener(countLis);
+		paidThroughSpinner.setOnItemSelectedListener(paidLis);
+		hoaSpinner.setOnItemSelectedListener(hoaLis);
 
 		/* Ready calculate button to go to other activity */
 		Button next = (Button) findViewById(R.id.calculateButton);
@@ -204,6 +227,7 @@ public class Proceeds_appActivity extends Activity {
 				} catch (NumberFormatException NFE) {
 					hoaFee = (float) 0.0;
 				}
+				
 
 				Intent myIntent = new Intent(view.getContext(), Results.class);
 				myIntent.putExtra("year", mYear);
@@ -240,16 +264,20 @@ public class Proceeds_appActivity extends Activity {
 		
 		int spinnerInit = 0;
 		int NUMBER_SPINNERS = 1; // There are FOUR spinners...?
+		View target;
+		
+		public localOnItemSelectedListener(View target){
+			this.target = target;	
+		}
 		@Override
 		public void onItemSelected(AdapterView<?> parent, View view, int pos,
 				long id) {
 			if (spinnerInit < NUMBER_SPINNERS){
 				spinnerInit++;
-				//System.out.println("Hay!");
+				System.out.println("Hay!");
 			}
 			else{
-				//System.out.print("View is ");
-				view.requestFocus(view.FOCUS_DOWN);
+				target.requestFocus();		
 			}
 			
 		}
@@ -264,7 +292,7 @@ public class Proceeds_appActivity extends Activity {
 	}
 	
 
-	
+
 
 	// updates the date in the TextView
 	private void updateDisplay() {
@@ -285,6 +313,7 @@ public class Proceeds_appActivity extends Activity {
 			updateDisplay();
 		}
 	};
+	
 
 	@Override
 	protected Dialog onCreateDialog(int id) {

@@ -153,7 +153,8 @@
 
                 <EditText
                     android:id="@+id/closingDateValue"
-                    android:focusable="False"
+                    android:focusable="True"
+                    android:focusableInTouchMode="True"
                     android:inputType="date" />
             </TableRow>
 
@@ -233,7 +234,9 @@
                 <Spinner
                     android:id="@+id/realtor_commissions_spinner"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" 
+                    android:nextFocusDown="@+id/AnnualTax"/>
             </TableRow>
 
             <TableRow
